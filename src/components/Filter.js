@@ -11,10 +11,6 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
   const [filteredProducts, setFilteredProducts] = useState(products);
 
-  useEffect(() => {
-    updateProducts();
-  }, [selectedGender, minPrice, searchTerm, sortOrder]);
-
   const updateProducts = () => {
     let filteredProducts = products.filter((product) => {
       const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
@@ -31,6 +27,10 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
 
     setFilteredProducts(filteredProducts);
   };
+
+  useEffect(() => {
+    updateProducts();
+  }, [selectedGender, minPrice, searchTerm, sortOrder, updateProducts]);
 
   const displayProducts = () => {
     return filteredProducts.map((product) => (

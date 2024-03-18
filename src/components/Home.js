@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="landing-page">
       <div className="darkened-overlay"></div> {/* Add a div for the darkened overlay */}
-      <img src="/img/image7.png" alt="Random Image" />
+      <img src="/img/image7.png" alt="" />
       <div className="overlay-text">Welcome</div>
     </div>
   );
