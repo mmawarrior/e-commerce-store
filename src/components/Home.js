@@ -7,13 +7,13 @@ const Home = () => {
     console.log('Changing image to:', image);
   };
 
-  const updateProducts = () => {
+  const updateProducts = useCallback(() => {
     // Define functionality to update products
     console.log('Updating products...');
-  };
-
+  }, []);
+  
   useEffect(() => {
-    // Include updateProducts in the dependency array
+    // Call updateProducts
     updateProducts();
   }, [updateProducts]);
 
