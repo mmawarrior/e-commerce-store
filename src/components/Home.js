@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './Home.css';
 
 const Home = () => {
@@ -11,9 +11,9 @@ const Home = () => {
     // Define functionality to update products
     console.log('Updating products...');
   }, []);
-  
+
   useEffect(() => {
-    // Call updateProducts
+    // Include updateProducts in the dependency array
     updateProducts();
   }, [updateProducts]);
 
