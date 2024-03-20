@@ -15,7 +15,7 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
     updateProducts();
   }, [selectedGender, minPrice, searchTerm, sortOrder, updateProducts]);
  
-  const updateProducts = () => {
+   const updateProducts = () => {
     let filteredProducts = products.filter((product) => {
       const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
       const matchesPrice = product.price >= minPrice;
