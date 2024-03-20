@@ -13,8 +13,8 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
 
   useEffect(() => {
     updateProducts();
-  }, [selectedGender, minPrice, searchTerm, sortOrder]);
-
+  }, [selectedGender, minPrice, searchTerm, sortOrder, updateProducts]);
+ 
   const updateProducts = () => {
     let filteredProducts = products.filter((product) => {
       const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
