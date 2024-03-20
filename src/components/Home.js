@@ -13,9 +13,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Call updateProducts inside useEffect
+    // Include updateProducts in the dependency array
     updateProducts();
-  }, []); // Empty dependency array to only run once when component mounts
+  }, [updateProducts]);
 
   return (
     <section className="home-section">
