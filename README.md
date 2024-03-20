@@ -1,6 +1,6 @@
 # See website at
 
-https://meek-pithivier-c87efd.netlify.app/checkout
+https://meek-pithivier-c87efd.netlify.app
 
 # Getting Started with Create React App
 
