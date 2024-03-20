@@ -120,14 +120,13 @@
 }
 
 @media (max-width: 970px) {
-    
     .container1 {
       flex-direction: column-reverse;
       align-items: center;
     }
     
     .container1 .img-box {
-        z-index: -1;
+     z-index: -1;
       order: 1;
     }
     
@@ -135,8 +134,7 @@
       order: 1; /* Place the text before the image on smaller screens */
       max-width: 600px;
     }
-
-     
+   
     .thumb {
       display: none;
     }
@@ -151,11 +149,18 @@
         z-index: -1;
         clip-path: circle(58% at 84% 19%);
     }
-    
+ 
   }
   
   @media (max-width: 710px) {
     .social {
        display: none; /* Hide social icons on smaller screens */
     }
+  }
+      
+  @media (max-width: 445px) {
+    .container1 .text-box {
+       font-size: 14px;
+    }
+
   }
