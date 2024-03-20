@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
@@ -7,13 +7,18 @@ const Home = () => {
     console.log('Changing image to:', image);
   };
 
-  const changeCircleColor = (color) => {
-    // Define functionality to change circle color
-    console.log('Changing circle color to:', color);
+  const updateProducts = () => {
+    // Define functionality to update products
+    console.log('Updating products...');
   };
 
+  useEffect(() => {
+    // Call updateProducts inside useEffect
+    updateProducts();
+  }, []); // Empty dependency array to only run once when component mounts
+
   return (
-    <section className="home-section"> {/* Add a special class name to the section */}
+    <section className="home-section">
       <div className="circle"></div>  
       <div className="container1">
         <div className="text-box">
@@ -31,9 +36,9 @@ const Home = () => {
         <li><img src="./img/thumb3.png" alt="Thumbnail 3" onClick={() => imgSlider('img3.png')} /></li>
       </ul>
       <ul className="social">
-        <li><a href="#"><img src="./img/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="./img/instagram.png" alt="Instagram" /></a></li>
-        <li><a href="#"><img src="./img/twitter.png" alt="Twitter" /></a></li>
+        <li><a href="https://www.facebook.com"><img src="./img/facebook.png" alt="Facebook" /></a></li>
+        <li><a href="https://www.instagram.com"><img src="./img/instagram.png" alt="Instagram" /></a></li>
+        <li><a href="https://www.twitter.com"><img src="./img/twitter.png" alt="Twitter" /></a></li>
       </ul>
     </section>
   );
