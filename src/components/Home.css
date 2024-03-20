@@ -120,6 +120,9 @@
 }
 
 @media (max-width: 970px) {
+    .home-section {
+        z-index: -1;
+    }
     .container1 {
       flex-direction: column-reverse;
       align-items: center;
@@ -149,10 +152,8 @@
         z-index: -1;
         clip-path: circle(58% at 84% 19%);
     }
- 
-  }
-  
-  @media (max-width: 710px) {
+   }
+    @media (max-width: 710px) {
     .social {
        display: none; /* Hide social icons on smaller screens */
     }
