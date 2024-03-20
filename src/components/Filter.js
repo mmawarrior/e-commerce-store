@@ -1,21 +1,15 @@
-// Filter.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Filter.css';
 import { Link } from 'react-router-dom';
 import products from './productsData';
 
 const Filter = ({ selectedGender, setSelectedGender }) => {
-
   const [minPrice, setMinPrice] = useState(50);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
   const [filteredProducts, setFilteredProducts] = useState(products);
 
-  useEffect(() => {
-    updateProducts();
-  }, [selectedGender, minPrice, searchTerm, sortOrder, updateProducts]);
- 
-   const updateProducts = () => {
+  const updateProducts = useCallback(() => {
     let filteredProducts = products.filter((product) => {
       const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
       const matchesPrice = product.price >= minPrice;
@@ -30,7 +24,11 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
     }
 
     setFilteredProducts(filteredProducts);
-  };
+  }, [selectedGender, minPrice, searchTerm, sortOrder]);
+
+  useEffect(() => {
+    updateProducts();
+  }, [updateProducts]);
 
   const displayProducts = () => {
     return filteredProducts.map((product) => (
