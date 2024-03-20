@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // Import Navbar.css
+
 import cartIcon from './cart-icon.svg';
 
-const Navbar = ({ setSelectedGender, cartCount  }) => {
+const Navbar = ({ setSelectedGender, cart }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -24,7 +25,8 @@ const Navbar = ({ setSelectedGender, cartCount  }) => {
         <label htmlFor="menu-toggle" className="menu-icon">&#9776;</label>
         <ul className={`menu ${menuOpen ? 'open' : ''}`}>
           <li>
-            <Link      to="/filter"
+            <Link
+              to="/filter"
               onClick={() => {
                 setSelectedGender('men');
                 handleMenuItemClick(); // Close the menu
@@ -59,7 +61,7 @@ const Navbar = ({ setSelectedGender, cartCount  }) => {
         <div className="cart-icon">
           <Link to="/cart">
             <img src={cartIcon} alt="Cart" />
-            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+            {cart && cart.length > 0 && <span className="cart-count">{cart.length}</span>}
           </Link>
         </div>
       </nav>

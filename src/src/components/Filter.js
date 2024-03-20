@@ -32,25 +32,25 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
     setFilteredProducts(filteredProducts);
   };
 
-  const displayProducts = () => {
+   const displayProducts = () => {
     return filteredProducts.map((product) => (
       <div key={product.id} className="product">
         <Link
           to={{
-            pathname: `/product/${product.id}`,
-            state: { product },
+            pathname: `/product/${product.id}`, // Use product id instead of index
+            state: { product }, // Pass product information as state
           }}
           className="product-link"
         >
-          <img src={`${product.image}`} alt={product.name} />
-          <h3 id={`product-name-${product.id}`}>{product.name}</h3>
-          <p id={`product-gender-${product.id}`}>Gender: {product.gender}</p>
-          <p id={`product-price-${product.id}`}>Price: ${product.price}</p>
-        </Link>
+<img src={`${product.image}`} alt={product.name} />
+  <h3>{product.name}</h3>
+  <p>Gender: {product.gender}</p>
+  <p>Price: ${product.price}</p>
+</Link>
+        {/* Replace until here */}
       </div>
     ));
   };
-  
 
   return (
     <div>

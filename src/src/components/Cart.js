@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './cart.css';
 
 const Cart = ({ cart, addToCart, subtractFromCart, removeFromCart, removeAllFromCart, checkout }) => {
     const [showSubtractInput, setShowSubtractInput] = useState(false);
-    const navigate = useNavigate(); // Initialize useNavigate
 
     // Calculate total price
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     const handleFocus = () => {
         setShowSubtractInput(true);
-    };
-
-    const handleCheckout = () => {
-        // Redirect to checkout page when checkout button is clicked
-        navigate("/checkout");
     };
 
     return (
@@ -80,7 +73,7 @@ const Cart = ({ cart, addToCart, subtractFromCart, removeFromCart, removeAllFrom
                     <div className="checkout-info-wrapper">
                         <p id="total-items">Total Items: {cart.length}</p>
                         <p id="total-price">Total Price: ${totalPrice}</p>
-                        <button id="checkout-button" onClick={handleCheckout}>Checkout</button>
+                        <button id="checkout-button" onClick={checkout}>Checkout</button>
                     </div>
                 </div>
             </div>

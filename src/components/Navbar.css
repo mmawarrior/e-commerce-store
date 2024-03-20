@@ -79,7 +79,7 @@ h1 {
   position: absolute; /* Position the count absolutely */
   top: -8px; /* Adjust the top position */
   right: -8px; /* Adjust the right position */
-  background-color:#1a8bbc; /* Background color for the count */
+  background-color:#1a8bbc; /* Background color for the count */
   color: white; /* Text color for the count */
   font-size: 12px; /* Font size for the count */
   padding: 4px 8px; /* Padding for the count */

@@ -6,12 +6,13 @@ import Filter from './components/Filter';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import products from './components/productsData';
-import Checkout from './components/checkout'; // Import the Checkout component
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import Checkout from './components/Checkout';
 
 const App = () => {
   const [selectedGender, setSelectedGender] = useState('all');
   const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0); // Add state for cart count
 
   const addToCart = (product) => {
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
@@ -23,9 +24,6 @@ const App = () => {
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
-
-    // Update cart count
-    setCartCount(prevCount => prevCount + 1);
   };
 
   const subtractFromCart = (product) => {
@@ -41,25 +39,22 @@ const App = () => {
   const removeFromCart = (product) => {
     const updatedCart = cart.filter((item) => item.id !== product.id);
     setCart(updatedCart);
-
-    // Update cart count
-    setCartCount(prevCount => prevCount - product.quantity);
   };
 
   const removeAllFromCart = () => {
     setCart([]);
-
-    // Update cart count
-    setCartCount(0);
   };
 
   const checkout = () => {
     // Implement checkout logic here
   };
 
+  // Load Stripe outside of the component to avoid reloading on every render
+const stripePromise = loadStripe('sk_test_51OtVPkFgigC49c1YQh7A5bJcUr2k0Q3hoQ1Zq4TxOdW0zrxRKsIQNs5I608U9YaV0QXhtEdhVcOS1UNW5sSdM1Tk00R5uZPh9A');
+
   return (
     <Router>
-      <Navbar cartCount={cartCount} setSelectedGender={setSelectedGender} />
+      <Navbar setSelectedGender={setSelectedGender} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -74,7 +69,11 @@ const App = () => {
           path="/cart"
           element={<Cart cart={cart} addToCart={addToCart} subtractFromCart={subtractFromCart} removeFromCart={removeFromCart} removeAllFromCart={removeAllFromCart} checkout={checkout} />}
         />
-        <Route path="/checkout" element={<Checkout />} /> {/* Add a new route for the checkout component */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart/checkout" element={<Checkout />} />
+
+         <Elements stripe={stripePromise}>
+          </Elements>
       </Routes>
     </Router>
   );

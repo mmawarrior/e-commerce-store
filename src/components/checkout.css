@@ -1,8 +1,11 @@
- .container {
+ 
+.container {
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
   position: relative;
+  z-index: -1; /* Ensure container appears above other elements */
+
 }
 
 #contact input[type="text"],
@@ -84,7 +87,7 @@ fieldset {
 }
 
 #contact button[type="submit"]:hover {
-  background: #148F77;
+  background: #15967D;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;

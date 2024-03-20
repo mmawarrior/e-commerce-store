@@ -73,6 +73,10 @@ header {
   transform: scale(1.05);
 }
 
+#price-display {
+  font-size: 16px;
+  font-weight: bold;
+}
 /* Product Link Styles */
 #products-container .product-link {
   text-decoration: none;
@@ -80,8 +84,8 @@ header {
 }
 
 #products-container h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: px;
+  margin-bottom: 4px; /* Adjust the margin-bottom value as needed */
 }
 
 #products-container p {

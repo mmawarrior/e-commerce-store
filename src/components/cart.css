@@ -169,12 +169,13 @@ span {
 /* Media query for max width of 720 pixels */
 @media (max-width: 720px) {
     .cart-items-container {
-        max-width: 100%;
+        max-width: 100%; /* Adjust the maximum width to fit smaller screens */
         margin: 0 10px; /* Adjust margin for smaller screens */
+        padding: 5px; /* Adjust padding for smaller screens */
     }
 
     .cart-header {
-        grid-template-columns: 1fr 2fr 1fr 1fr 1fr; /* Adjust column template for smaller screens */
+        grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1FR; /* Adjust column template for smaller screens */
     }
 
     .cart-item {

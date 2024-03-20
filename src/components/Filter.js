@@ -5,31 +5,32 @@ import { Link } from 'react-router-dom';
 import products from './productsData';
 
 const Filter = ({ selectedGender, setSelectedGender }) => {
+
   const [minPrice, setMinPrice] = useState(50);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
-    const updateProducts = () => {
-      let filteredProducts = products.filter((product) => {
-        const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
-        const matchesPrice = product.price >= minPrice;
-        const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-        return matchesGender && matchesPrice && matchesSearch;
-      });
-
-      if (sortOrder === 'asc') {
-        filteredProducts.sort((a, b) => a.price - b.price);
-      } else if (sortOrder === 'desc') {
-        filteredProducts.sort((a, b) => b.price - a.price);
-      }
-
-      setFilteredProducts(filteredProducts);
-    };
-
     updateProducts();
   }, [selectedGender, minPrice, searchTerm, sortOrder]);
+
+  const updateProducts = () => {
+    let filteredProducts = products.filter((product) => {
+      const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
+      const matchesPrice = product.price >= minPrice;
+      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesGender && matchesPrice && matchesSearch;
+    });
+
+    if (sortOrder === 'asc') {
+      filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sortOrder === 'desc') {
+      filteredProducts.sort((a, b) => b.price - a.price);
+    }
+
+    setFilteredProducts(filteredProducts);
+  };
 
   const displayProducts = () => {
     return filteredProducts.map((product) => (
@@ -49,6 +50,7 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
       </div>
     ));
   };
+  
 
   return (
     <div>
@@ -114,6 +116,7 @@ const Filter = ({ selectedGender, setSelectedGender }) => {
           <div id="products-container">{displayProducts()}</div>
         </div>
       </div>
+
     </div>
   );
 };

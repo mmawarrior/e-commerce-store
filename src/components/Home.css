@@ -1,40 +1,160 @@
-/* Home.css */
-.landing-page {
-  position: relative;
-  margin-top: 60px; /* Default margin-top value */
+ .home-section {
+    position: relative;
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden; /* Add this line to hide overflow on the x-axis */
+    margin-top: 60px;
 }
 
-.landing-page img {
-  width: 100%;
-  height: auto;
+.container1 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.darkened-overlay {
+.container1 .text-box {
+    position: relative;
+    max-width: 600px;
+}
+
+.container1 .text-box h2 {
+    color: #333;
+    font-size: 4em;
+    font-weight: 500;
+}
+
+.container1 .text-box h2 span {
+    color: #117964;
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.container1 .text-box p {
+    color: #333;
+}
+
+.container1 .text-box a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #117964;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.container1 .img-box {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 50px;
+}
+
+.container1 .img-box img {
+    max-width: 340px;
+}
+
+.thumb {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.thumb li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.thumb li:hover {
+    transform: translateY(-15px);
+}
+
+.thumb li img {
+    max-width: 600px;
+}
+
+.social {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social li {
+    list-style: none;
+}
+
+.social li a {
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(0.6);
+    filter: invert(1);
+}
+
+.circle {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Black with 50% opacity */
+  background: #117964;
+  clip-path: circle(600px at right 800px);
+  z-index: -1; /* Set a lower z-index to position it behind other elements */
 }
 
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 48px;
-  font-weight: bold;
-  text-align: center;
-  z-index: 1; /* Ensure the text is on top of the overlay */
-}
-
-@media screen and (max-width: 768px) {
-  .landing-page {
-    margin-top: 60px; /* Adjust margin-top for smaller screens */
-    z-index: -1; /* Move the image behind other elements */
+@media (max-width: 970px) {
+    .home-section {
+        z-index: -1;
+    }
+    .container1 {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    
+    .container1 .img-box {
+      order: 1;
+    }
+    
+    .container1 .text-box {
+      order: 1; /* Place the text before the image on smaller screens */
+      max-width: 600px;
+    }
+    
+    .thumb {
+      display: none;
+    }
+    
+    .social {
+        top: auto;
+    }
+    
+    .circle {
+        top: -16%;
+        z-index: -1;
+        clip-path: circle(58% at 84% 19%);
+    }
+    
   }
   
- 
-}
+  @media (max-width: 640px) {
+    .social {
+       DISPLAY: NONE;
+    }
+  }

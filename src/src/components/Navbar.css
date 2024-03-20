@@ -74,19 +74,6 @@ h1 {
   color: #34495E;
 }
 
-/* Cart count style */
-.cart-count {
-  position: absolute; /* Position the count absolutely */
-  top: -8px; /* Adjust the top position */
-  right: -8px; /* Adjust the right position */
-  background-color:#1a8bbc; /* Background color for the count */
-  color: white; /* Text color for the count */
-  font-size: 12px; /* Font size for the count */
-  padding: 4px 8px; /* Padding for the count */
-  border-radius: 50%; /* Make the count circle */
-}
-
-
 /* Sections */
 
 footer {
@@ -169,15 +156,13 @@ footer {
  
   .cart-icon {
     display: block;
-   }
+    width: 10%; /* Adjust the percentage as needed */
+  }
 
   .logo {
     padding-top: 22px;
     position: absolute;
     left: 50px;
   }
-  /* Cart count positioning */
-  .cart-count {
-    
-  }
+
 }
